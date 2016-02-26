@@ -1,0 +1,51 @@
+
+
+{% block content %}
+ {% load staticfiles %}
+ 
+ <!DOCTYPE html>
+<html>
+<head>
+  <!-- CSS -->
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+       
+        <link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="{% static 'css/form-elements.css' %}">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title></title>
+</head>
+<body background="black">
+   <div class="row-fluid">
+                        <div class="span6">
+                            <h3 class="heading">Registrar nuevo Cliente</h3>
+                            <form method="post" class="form_validation_ttip" action=".">{% csrf_token %}
+                                <div class="formSep">
+                                    <div class="row-fluid">
+                                         <form role="form" action="" method="POST" class="registration-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                      {{ form2.as_p }}
+                       
+                        
+                      </form>
+                                
+                                                        
+                                    </div>
+                        <div class="span6">
+                                <div class="form-actions">
+                                    <button type="submit" value="Create" class="btn">Actualizar Perfil</button>
+                                   
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                        
+                </div>
+            </div>
+</body>
+</html>
+        
+    
+{% endblock content %}

@@ -1,0 +1,179 @@
+{% extends 'blog/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home</title>
+    
+ 
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/blog-home.css' %}">
+    <link href="css/blog-home.css" rel="stylesheet">
+
+     <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="{% static 'assets2/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets2/css/form-elements.css' %}">
+        
+        <link rel="stylesheet" href="{% static 'topay/css/bootstrap-markdown.min.css' %}">
+        <link rel="stylesheet" href="{% static 'topay/less/bootstrap-markdown.less' %}">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+{% block content %}
+<style type="text/css">
+  div#content {
+  
+  }
+  div#loading {
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 200px;
+    height: 200px;
+    background: url({% static 'img/477.gif' %}) no-repeat;
+    cursor: wait;
+  }
+</style>
+
+     
+
+ <!-- Page Content -->
+    <div id="content" class="container">
+    
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+                
+                <h1 class="page-header"><img class="img-circle" width="50" height="50" src="{% static 'img/backgrounds/3.jpg' %}" alt="">Publicaciones
+                    <small>Linea De Tiempo</small>
+                    <br></br><a class="btn btn-primary" data-toggle="modal" data-target="#modal-register" href="#">Add Post <span class="glyphicon glyphicon-th-list"></span></a>
+                    <br></br>
+
+                     <!-- MODAL -->
+        <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title" id="modal-register-label">Add Post</h3>
+                        <p>Customize your Post:</p>
+                    </div>
+                    
+                    <div class="modal-body">
+                    <form role="form" action="" method="POST" class="registration-form">
+                    {% csrf_token %}
+                    <label> Tittle </label>
+                    <br></br>
+                    {{ form.title }}
+                    <br></br>
+                    <label> Body </label>
+                    <textarea name="body" data-provide="markdown" data-width="500" rows="10" ></textarea>
+                    
+        
+                    
+
+                    <button class="btn btn-primary btn-icon" type="submit" value="Create" class="btn">Postear<i class="entypo-check"></i></button>
+
+                   <button type="button" class="btn btn-primary btn-icon" data-dismiss="modal"><i class="entypo-cancel"></i>Cancelar</button>
+
+                   
+                    
+
+
+                        </form>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+             
+
+
+                {% for post in posts %}
+                <!-- First Blog Post -->
+              <div class="row">    
+                          <div class="col-sm-9">
+                            <h3>{{post.title}}</h3>
+
+                            <h4>{{post.body}}<h4>
+
+                         <img class="img-rounded" width="800" height="200" src="{% static 'img/backgrounds/red1.jpg' %}" alt="">
+                            <small class="text-muted">{{post.creatd_date}} • <a href="#" class="text-muted">Read More</a></small>
+                            </h4>
+                          </div>
+                          <div class="col-sm-3">
+                           
+                            <a href="#" class="pull-right"> <img width="50" height="50" src="{{user.userp.picture.url}}" class="img-circle"></a>
+                        </div>
+                  </div>
+                 <hr>
+                {% endfor %}
+                
+
+                <script type="text/javascript">
+               $('#some-textarea').markdown({autofocus:false,savable:false}):   
+              </script>
+                      
+             <style type="text/css">
+            .sticky {
+              margin: 0;
+              padding: 8px 24px;
+              width: 900px;
+              height: 500px;
+              font-family: arial;
+              font-size: 1.4em;
+              border: 1px #E8Ds47 solid;
+              -moz-box-shadow:0px 0px 6px 1px #333333 ;
+              -webkit-box-shadow:0px 0px 6px 1px #333333;
+              box-shadow: 0px 0px 6px 1px #333333 ;
+              background: #981b1b;
+              background: -moz-linear-gradient(top,#808080 0%, #f7f381 100%);/*FF3.6*/
+
+
+            }
+
+             </style>
+
+
+              
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'assets/js/wysihtml5/wysihtml5-0.4.0pre.min.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+     <!-- Javascript -->
+        <script src="{% static 'topay/js/bootstrap-markdown.js' %}"></script>
+        <script src="{% static 'assets2/js/jquery-1.11.1.min.js' %}"></script>
+        <script src="{% static 'assets2/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets2/js/jquery.backstretch.min.js' %}"></script>
+        <script src="{% static 'assets2/js/scripts.js' %}"></script>
+{% endblock content %}
+</body>
+
+</html>

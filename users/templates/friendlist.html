@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+ {% load staticfiles %}
+<html>
+<head>
+<script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
+<script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
+    <title>Drop-Friends</title>
+</head>{% block content %}
+<body>
+<h2>Amistades</h2>
+
+<a class="btn btn-primary" data-toggle="modal" data-target="#modal-register" href="#"><span class="entypo-search"></span>Buscar Usuario</a>
+                    <br></br>
+   <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title" id="modal-register-label">Seach Friends</h3>
+                        <p>Search by Username:</p>
+                    </div>
+                    
+                    <div class="modal-body">
+                    <form role="form" action="" method="GET" class="registration-form">
+                    {% csrf_token %}
+
+            <input type="text" id="textbox" method="GET">
+             <span>Repite</span>
+             <div id="changeable_text" >
+                 
+             </div>
+             <br></br>
+        
+        {% for objects in Array %}
+        <div class="card hovercard2">
+      <div class="card hovercard">
+    <div class="card hovercard">
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src="{{result.userp.picture.url}}">
+            <!-- http://lorempixel.com/850/280/people/9/ -->
+        </div>
+        <div class="useravatar">
+            <img class="img-circle" width="100" height="100" src="{{result.userp.picture.url}}" />
+        </div>
+        <div class="card-info"> <span class="card-title"> {{objects.fields.username}}({{obj.username}})</span>
+        
+        </div>
+    </div>
+    <div class="btn btn-group  btn-group-lg" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+           <a href="/users/perfil/{{user.id}}/">
+            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                <div class="hidden-xs">Perfil</div>
+            </button>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="favorites" class="btn btn-primary" href="#tab2" data-toggle="tab"><span class="entypo-user-add" aria-hidden="true"></span>
+                <div class="hidden-xs">Add Friend</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="following" class="btn btn-primary" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                <div class="hidden-xs">Mensaje</div>
+            </button>
+        </div>
+    </div>
+
+     
+    
+    </div>
+</div>
+                    
+               {% endfor %}  
+
+                    
+
+                   <button type="button" class="btn btn-primary btn-icon" data-dismiss="modal"><i class="entypo-cancel"></i>Cerrar</button>
+
+                   
+                    <br></br>                  
+
+                   
+                    
+                        
+
+                         
+
+                        
+                        </form>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+
+{% for friend in friends %}
+    
+<div class="card hovercard2">
+      <div class="card hovercard">
+    <div class="card hovercard">
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src="{{friend.friend.userp.picture.url}}">
+            <!-- http://lorempixel.com/850/280/people/9/ -->
+        </div>
+        <div class="useravatar">
+            <img class="img-circle" width="100" height="100" src="{{friend.friend.userp.picture.url}}" />
+        </div>
+        <div class="card-info"> <span class="card-title">{{friend.friend.first_name}} {{friend.friend.last_name}}({{friend.friend.username}})</span>
+        
+        </div>
+    </div>
+    <div class="btn btn-group  btn-group-lg" role="group" aria-label="...">
+       
+        <div class="btn-group" role="group">
+          
+            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            
+                <div class="hidden-xs">Perfil</div>
+            </button>
+            
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="favorites" class="btn btn-primary" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                <div class="hidden-xs">Delete Friend</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="following" class="btn btn-primary" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                <div class="hidden-xs">Mensaje</div>
+            </button>
+        </div>
+    </div>
+
+     
+    
+    </div>
+</div>
+
+
+{% endfor %}
+
+
+        
+        {% endblock content %}
+
+
+
+
+
+</body>
+</html>
