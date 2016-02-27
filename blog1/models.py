@@ -44,6 +44,7 @@ class Post(models.Model):
 	body = models.TextField()
 	creatd_date = models.DateTimeField(auto_now_add=True, auto_now=False)
 	updated_date = models.DateTimeField(auto_now_add=False, auto_now=True)
+	autor = models.ForeignKey(User)
 	author = models.CharField(max_length=50)
 	categories = models.ManyToManyField(Category)
 	tags = models.ManyToManyField(Tag)
