@@ -64,7 +64,7 @@ class PostCreate(generic.edit.CreateView):
 def list_and_create(request):
 	form = PostForm(request.POST or None)
 	hold = form.save(commit=False)
-	hold.author = request.user.username
+	hold.autor = request.user
 	if request.method == 'POST':
 		hold.save()
 
