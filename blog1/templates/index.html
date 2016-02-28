@@ -68,6 +68,31 @@
                     <small>Linea De Tiempo</small>
                     <br></br><a class="btn btn-primary" data-toggle="modal" data-target="#modal-register" href="#">Add Post <span class="glyphicon glyphicon-th-list"></span></a>
                     <br></br>
+                    
+                                   <div class="well">
+                <form role="form" action="" method="POST" class="registration-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 400px; height: 200px;"></div>
+                         <div>
+
+                          <span class="btn btn-default btn-file"><span>Select Post Img</span>{{ form.picturep }}</span>
+                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                       </div>
+
+                    <input type="text" class="form-control" id="" name="title" placeholder="Titulo">
+    
+    <br />
+    
+    
+    
+      <div class="form-group">
+        <textarea class="form-control wysihtml5" placeholder="El Texto Aqui" data-stylesheet-url="{% static 'assets/css/wysihtml5-color.css' %}" name="body" id="sample_wysiwyg" data-target= ></textarea>
+      </div>
+        
+ 
+                    <button class="btn btn-primary btn-icon" type="submit" value="Create" class="btn">Postear<i class="entypo-check"></i></button>
 
                      <!-- MODAL -->
         <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
