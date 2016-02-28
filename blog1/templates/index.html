@@ -73,7 +73,7 @@
                 <form role="form" action="" method="POST" class="registration-form" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 300px; height: 200px;"></div>
+                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 200px;"></div>
                          <div>
 
                           <span class="btn btn-default btn-file"><span>Select Post Img</span>{{ form.picturep }}</span>
@@ -191,6 +191,8 @@
     <!-- jQuery -->
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'assets/js/wysihtml5/wysihtml5-0.4.0pre.min.js' %}"></script>
+      <script src="{% static 'assets/js/wysihtml5/wysihtml5-0.4.0pre.min.js' %}"></script>
+    <script src="{% static 'assets/js/wysihtml5/bootstrap-wysihtml5.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -201,6 +203,7 @@
         <script src="{% static 'assets2/bootstrap/js/bootstrap.min.js' %}"></script>
         <script src="{% static 'assets2/js/jquery.backstretch.min.js' %}"></script>
         <script src="{% static 'assets2/js/scripts.js' %}"></script>
+        <script src="{% static 'js/jasny-bootstrap.js'%}"></script>
 {% endblock content %}
 </body>
 
