@@ -76,7 +76,14 @@
 	                    <form role="form" action="" method="POST" class="registration-form" enctype="multipart/form-data">
                         {% csrf_token %}
                         <label> Picture </label>
-                        {{ profile_form.picture }}
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                         <div>
+
+                          <span class="btn btn-default btn-file"><span>Select User Photo</span>{{ profile_form.picture }}</span>
+                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+                       </div>
                         <br></br>
                         <label> Username: </label>
 	                    {{ user_form.username }}
