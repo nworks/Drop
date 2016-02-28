@@ -62,11 +62,20 @@ class PostCreate(generic.edit.CreateView):
 
 
 def list_and_create(request):
-	form = PostForm(request.POST or None)
-	hold = form.save(commit=False)
-	hold.autor = request.user
+	form = PostForm(data=request.POST)
 	if request.method == 'POST':
-		hold.save()
+		
+		if form.is_valid():
+			hold = form.save(commit=False)
+			hold.autor = request.user
+			hold.save()
+
+			if 'picturep' in request.FILES:
+				hold.picturep  = request.FILES['picturep']
+				
+				hold.save()
+				form.save()
+					
 
 	# notice this comes after saving the form to pick up new objects
 	post = Post.objects.all()
@@ -74,3 +83,4 @@ def list_and_create(request):
 		{'post': post,'form': form,  "posts":post.all()})
 
 	#'form': form,
+

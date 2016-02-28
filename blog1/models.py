@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
+from PIL import Image
+
 
 # Create your models here.
 class Author(models.Model):
@@ -48,6 +50,7 @@ class Post(models.Model):
 	author = models.CharField(max_length=50)
 	categories = models.ManyToManyField(Category)
 	tags = models.ManyToManyField(Tag)
+	picturep = models.ImageField(upload_to='picturep/', blank=True)
 
 	class Meta:
 		ordering = ["-creatd_date"]
