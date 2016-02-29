@@ -43,7 +43,7 @@
                             <p><img class="" width="70" height="70" src="https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/512/comedy_mask.png" alt=""><h1><strong>Unknown</strong> </h1>
                             <div class="description">
                             	<p>
-	                            	Pre-Alpha
+	                            	Alpha
                             	</p>
                             </div>
                         </div>
@@ -63,10 +63,10 @@
 			                    <form role="form" action="" method="post" class="login-form">
 			                       {% csrf_token %}
                                     <label> Username </label>
-                                    {{ form.username }}
+                                    <input type="text" name="username" class="form-control" />
                                     <br></br>
                                     <label> Password </label>
-                                    {{ form.password }}
+                                    <input type="text" name="password" class="form-control" />
                                      <br></br>
 
 			                        <button type="submit" class="btn btn-primary">Sign in!</button>
