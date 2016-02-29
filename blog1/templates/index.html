@@ -95,14 +95,7 @@
                     {% csrf_token %}
                      <h2 class="margin-bottom">Crea Tu Post</h2>
        
-                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                         <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200x; height: 100px;"></div>
-                         <div>
-
-                          <span class="btn btn-default btn-file"><span>Select Post Img</span>{{ form.picturep }}</span>
-                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                        </div>
-                       </div>
+                       <span class="btn btn-primary btn-file"><span><span class="glyphicon glyphicon-camera"></span></span>{{ form.picturep }}</span>
     
                        <input type="text" class="form-control" id="" name="title" placeholder="Titulo">
     
@@ -111,7 +104,7 @@
     
     
      
-    <textarea class="form-control" data-uk-markdownarea name="body"></textarea>
+    <textarea class="form-control" data-uk-markdownarea name="body" placeholder="Tu texto aqui"></textarea>
         
  
                     <button class="btn btn-primary btn-icon" type="submit" value="Create" class="btn">Postear<i class="entypo-check"></i></button>
