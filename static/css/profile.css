@@ -1,0 +1,28 @@
+.fb-profile {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin-top: -150px;
+}
+.fb-cover {
+  position: relative;
+}
+ 
+.fb-front
+{
+ width:100%;
+ height:315px;
+}
+.fb-likebox {
+  bottom: 12px;
+  left: 201px;
+  position: absolute;
+}
+.navbar-brand2
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+ 
+}
