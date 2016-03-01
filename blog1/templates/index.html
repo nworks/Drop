@@ -142,7 +142,12 @@
                            
                             <a href="#" class="pull-right"> <img width="50" height="50" src="{{post.autor.userp.picture.url}}" class="img-circle"></a>
                         </div>
+                         <button id ="likes" data-catid="{{category.id}}" class="btn btn-mini btn-primary" type="button">Like</button>
+                  <button id ="dislikes" data-catid="{{category.id}}" class="btn btn-mini btn-primary" type="button">Dislike</button>
+                  <button id ="dislikes" data-catid="{{category.id}}" class="btn btn-mini btn-primary" type="button">Share</button>
                   </div>
+                  
+                 <hr>
                  <hr>
                 {% endfor %}
                 
