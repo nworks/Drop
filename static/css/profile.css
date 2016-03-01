@@ -5,7 +5,15 @@
   margin-top: -150px;
 }
 .fb-cover {
-  position: relative;
+   position: relative;
+  -webkit-filter: blur(25px);
+  -moz-filter: blur(25px);
+  -o-filter: blur(25px);
+  -ms-filter: blur(25px);
+  filter: blur(25px);
+  margin-left: -100px;
+  margin-top: -100px;
+  min-width: 120%;
 }
  
 .fb-front
