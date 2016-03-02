@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+
+<head>
 {% load staticfiles %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,19 +20,24 @@
     <!-- Custom CSS -->
 
 
-    <link rel="stylesheet" href="{% static 'assets/css/font-icons/entypo/css/entypo.css' %}">
+    
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/font-icons/entypo/css/entypo.css' %}">
+    
     
 
 
     <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/skins/red.css' %}">
-     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-      <link rel="stylesheet" href="{% static 'css/audio.css' %}">
-     
-     <script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
+    
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/audio.css' %}">
+    
+
+    <script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
+
+   
+    
   
     
   
@@ -61,15 +68,29 @@
            
     
       <div class="audio-player-controls">
-        <span class="audio-player-progress">
-          <span class="audio-player-progress-bar"></span>
+
+        <span id='progressOut' class="audio-player-progress">
+          <span id='progressIn' class="audio-player-progress-bar"></span>
         </span>
         <span class="audio-player-button-wrappers">
-          <a role="button" class="audio-player-button small icon-backward"></a>
-          <a role="button" class="audio-player-button audio-player-place-pause-button icon-play"></a>
-          <a role="button" class="audio-player-button small icon-forward"></a>
+          <a role="button"  class="audio-player-button small icon-backward"></a>
+          <a role="button" id="play" class="audio-player-button audio-player-place-pause-button icon-play"></a>
+          <a role="button" id="pause" class="audio-player-button small icon-forward"></a>
         </span>
-      </div>
+      </div><audio id="audio" width="300" height="32" src="{% static 'go.mp3' %}"></audio>
+
+
+
+
+<div id='progressOut' >
+     <div id='progressIn'>
+          <div id='time'>00:00</div>
+     </div>
+</div>
+
+<script >
+ 
+</script>
            <h3><strong>{{user.first_name}} {{user.last_name}}</strong></h3>
             
           </div>
@@ -88,20 +109,23 @@
 
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
-    <h3>Aqui las Publicaciones del Usuario</h3>
+    <h3>Aqui va la informacion del Usuario</h3>
     <p>Some content.</p>
+
   </div>
   <div id="menu1" class="tab-pane fade">
-    <h3>Aqui va la media</h3>
-    <p>Imagenes, audio, entre otros</p>
+    <h3>Menu 1</h3>
+    <p>Some content in menu 1.</p>
   </div>
 
   <div id="menu2" class="tab-pane fade">
-    <h3>Informaciones sobre este user</h3>
-    <p>Nombre, Apellido,Email.com, bla bla bla</p>
+    <h3>Menu 2</h3>
+    <p>Some content in menu 2.</p>
   </div>
 </div>
+  
 </body>{% endblock content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/audio.js' %}"></script>
 </html>
