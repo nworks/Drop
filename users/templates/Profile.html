@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/skins/red.css' %}">
      <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+      <link rel="stylesheet" href="{% static 'css/audio.css' %}">
      
      <script src="{% static 'assets/js/jquery-1.11.0.min.js' %}"></script>
   
@@ -47,7 +48,7 @@
 <body>
 {% block content %}
 
-  <div class="container">
+   <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="fb-cover">
@@ -56,13 +57,19 @@
       <div class="navbar">
         <div class="navbar-header">
           <div class="navbar-brand fb-profile navbar-brand2">
-           <img src="{{user.userp.picture.url}}" width="170" height="170"  class="img-responsive img-thumbnail img-circle center-block">
-           <audio controls>
-  
-  <source src="{% static 'go.mp3' %}" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio> 
-           </br>
+           <img src="{{user.userp.picture.url}}" width="150" height="150"  class="img-responsive img-thumbnail img-circle center-block">
+           
+    
+      <div class="audio-player-controls">
+        <span class="audio-player-progress">
+          <span class="audio-player-progress-bar"></span>
+        </span>
+        <span class="audio-player-button-wrappers">
+          <a role="button" class="audio-player-button small icon-backward"></a>
+          <a role="button" class="audio-player-button audio-player-place-pause-button icon-play"></a>
+          <a role="button" class="audio-player-button small icon-forward"></a>
+        </span>
+      </div>
            <h3><strong>{{user.first_name}} {{user.last_name}}</strong></h3>
             
           </div>
@@ -96,4 +103,5 @@ Your browser does not support the audio element.
 </div>
 </body>{% endblock content %}
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/audio.js' %}"></script>
 </html>
