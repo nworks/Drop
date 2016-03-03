@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^blog1/', include('blog1.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^users/', include('users.urls')),
+    url(r'^chat/', include('djangoChat.urls')),
 
     
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
